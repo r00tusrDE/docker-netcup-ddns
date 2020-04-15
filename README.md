@@ -24,8 +24,8 @@ $ sudo pacman -S git
 $ sudo zypper install git
 ```
 * Install Docker and docker-compose
-- Install Docker on [CentOS](https://docs.docker.com/engine/install/centos) | [Debian](https://docs.docker.com/engine/install/debian) | [Fedora](https://docs.docker.com/engine/install/fedora) | [Ubuntu](https://docs.docker.com/engine/install/ubuntu)
-- Install [docker-compose](https://docs.docker.com/compose/install)
+  - Install Docker on [CentOS](https://docs.docker.com/engine/install/centos) | [Debian](https://docs.docker.com/engine/install/debian) | [Fedora](https://docs.docker.com/engine/install/fedora) | [Ubuntu](https://docs.docker.com/engine/install/ubuntu)
+  - Install [docker-compose](https://docs.docker.com/compose/install)
 
 ## Getting started
 1. Clone this repo and its submodule
