@@ -1,6 +1,6 @@
 # docker-netcup-ddns
 
-A netcup DynDNS client wrapped inside a Docker container.
+Self-hosted dynamic DNS php script for FRITZ!Box and netcup DNS API wrapped inside Docker containers.
 
 ### Built With
 * [ownDynDNS](https://github.com/fernwerker/ownDynDNS/tree/7f6291964e4aca4c612c69dc7839077623bde1f2)
