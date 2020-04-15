@@ -43,4 +43,5 @@ For information on how to use the PHP script (ownDynDNS) take a look at their [R
 Just skip the part that says "Copy all files to your webspace" and follow the rest of the installation how-to and you are good to go.
 
 ## License
-Distributed under the MIT License. See `LICENSE` for more information.
+The `ownDynDNS` submodule is distributed under the GPLv3 License. See [ownDynDNS/LICENSE](https://github.com/fernwerker/ownDynDNS/blob/7f6291964e4aca4c612c69dc7839077623bde1f2/LICENSE) for more information.
+The rest of the project is distributed under the MIT License. See `LICENSE` for more information.
