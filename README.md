@@ -35,7 +35,7 @@ $ git clone --recurse-submodules https://github.com/r00tusrDE/docker-netcup-ddns
 2. Edit the nginx vhost name and the HTTP port in docker-compose.yml
 3. Change owner of the ownDynDNS folder recursive to the webserver user www-data
 ```sh
-$ chown -R www-data:www-data
+$ chown -R www-data:www-data ./ownDynDNS
 ```
 4. Start the Docker containers
 ```sh
