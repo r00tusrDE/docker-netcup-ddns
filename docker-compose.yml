@@ -12,10 +12,11 @@ services:
       - ./site.template:/etc/nginx/conf.d/site.template
     environment:
         # hostname or IP-Address of your nginx vhost
-      - NGINX_HOST=x.x.x.x
+      - 'NGINX_HOST=192.168.178.19'
     depends_on:
       - php
-    command: /bin/bash -c "envsubst < /etc/nginx/conf.d/site.template > /etc/nginx/conf.d/default.conf && exec nginx -g 'daemon off;'"
+    command: /bin/bash -c "envsubst '$$NGINX_HOST' < /etc/nginx/conf.d/site.template > /etc/nginx/conf.d/default.conf && exec nginx -g 'daemon off;'"
+    #command: /bin/bash -c "exec nginx -g 'daemon off;'"
 
   php:
     build: ./php
