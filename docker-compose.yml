@@ -1,0 +1,24 @@
+---
+version: "2"
+services:
+  web:
+    image: nginx:latest
+    container_name: netcup-ddns_web
+    ports:
+        # port where the nginx server is listening on the Docker host
+      - "8088:80"
+    volumes:
+      - ./ownDynDNS:/ownDynDNS
+      - ./site.template:/etc/nginx/conf.d/site.template
+    environment:
+        # hostname or IP-Address of your nginx vhost
+      - 'NGINX_HOST=192.168.178.19'
+    depends_on:
+      - php
+    command: /bin/bash -c "envsubst '$$NGINX_HOST' < /etc/nginx/conf.d/site.template > /etc/nginx/conf.d/default.conf && exec nginx -g 'daemon off;'"
+
+  php:
+    build: ./php
+    container_name: netcup-ddns_php
+    volumes:
+      - ./ownDynDNS:/ownDynDNS
