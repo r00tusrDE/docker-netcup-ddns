@@ -43,8 +43,35 @@ $ docker-compose up -d
 ```
 
 ## Usage
-For information on how to use the PHP script (ownDynDNS) take a look at their [README.md](https://github.com/fernwerker/ownDynDNS/blob/7f6291964e4aca4c612c69dc7839077623bde1f2/README.md).
-Just skip the part that says "Copy all files to your webspace" and follow the rest of the installation how-to and you are good to go.
+### Installation
+* create a copy of `.env.dist` as `.env` and configure:
+  * `username` -> The username for your Router to authenticate (so not everyone can update your DNS)
+  * `password` -> password for your Router
+  * `apiKey` -> API key which is generated in netcup CCP
+  * `apiPassword` -> API password which is generated in netcup CCP
+  * `customerId` -> your netcup Customer ID
+  * `debug` -> true|false enables debug mode and generates output of update.php (normal operation has no output)
+  
+* Create each host record in your netcup CCP before using the script. The script does not create any missing records.
+
+### AVM FRITZ!Box Settings
+* Go to "Internet" -> "Freigaben" -> "DynDNS"
+* Choose "Benutzerdefiniert"
+* Update-URL: `https://<url of your webspace>/update.php?user=<username>&password=<pass>&ipv4=<ipaddr>&ipv6=<ip6addr>&domain=<domain>`
+  * only the url needs to be adjusted, the rest is automatically filled by your AVM FRITZ!Box
+  * http or https is possible if valid SSL certificate (e.g. Let's Encrypt)
+* Domainname: `<host record that is supposed to be updated>`
+* Username: `<username as defined in .env file>`
+* Password: `<password as definied in .env file>`
+
+For the original tutorial on how to use the PHP script (ownDynDNS) take a look at their [README.md](https://github.com/fernwerker/ownDynDNS/blob/7f6291964e4aca4c612c69dc7839077623bde1f2/README.md).
+
+## run as cronjob on a **nix based device
+* see [examples](./examples)
+
+## References
+* DNS API Documentation: https://ccp.netcup.net/run/webservice/servers/endpoint.php
+* Source of dnsapi.php: https://ccp.netcup.net/run/webservice/servers/endpoint.php?PHPSOAPCLIENT
 
 ## License
 The `ownDynDNS` submodule is distributed under the GPLv3 License. See [ownDynDNS/LICENSE](https://github.com/fernwerker/ownDynDNS/blob/7f6291964e4aca4c612c69dc7839077623bde1f2/LICENSE) for more information.
